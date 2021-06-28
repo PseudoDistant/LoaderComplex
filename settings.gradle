@@ -15,5 +15,6 @@ include 'loadercomplex-bukkit'
 include 'loadercomplex-sponge'
 include	'loadercomplex-fabric-12'
 include	'loadercomplex-forge-12'
+include 'loadercomplex-arch'
 
 rootProject.name = 'loadercomplex'
