@@ -1,6 +1,6 @@
 plugins {
-    id "architectury-plugin" version "3.1-SNAPSHOT"
-    id "dev.architectury.loom" version "0.7.2-SNAPSHOT" apply false
+    id 'architectury-plugin' version '3.1-SNAPSHOT'
+    id 'dev.architectury.loom' version '0.7.2-SNAPSHOT' apply false
 }
 
 architectury {
@@ -8,14 +8,14 @@ architectury {
 }
 
 subprojects {
-    apply plugin: "dev.architectury.loom"
+    apply plugin: 'dev.architectury.loom'
 
     loom {
         silentMojangMappingsLicense()
     }
 
     dependencies {
-        minecraft "com.mojang:minecraft:1.16.5"
+        minecraft 'com.mojang:minecraft:1.16.5'
         // The following line declares the mojmap mappings, you may use other mappings as well
         mappings loom.officialMojangMappings()
         // The following line declares the yarn mappings you may select this one as well.
@@ -24,9 +24,8 @@ subprojects {
 }
 
 allprojects {
-    apply plugin: "java"
-    apply plugin: "architectury-plugin"
-    apply plugin: "maven-publish"
+    apply plugin: 'java'
+    apply plugin: 'architectury-plugin'
 
     archivesBaseName = rootProject.archives_base_name
     version = rootProject.mod_version
@@ -44,6 +43,6 @@ allprojects {
     targetCompatibility = JavaVersion.VERSION_1_8
 
     tasks.withType(JavaCompile) {
-        options.encoding = "UTF-8"
+        options.encoding = 'UTF-8'
     }
 }

@@ -1,5 +1,5 @@
 plugins {
-	id "com.github.johnrengelman.shadow" version "5.0.0"
+	id 'com.github.johnrengelman.shadow' version '5.0.0'
 }
 
 configurations {
@@ -12,47 +12,47 @@ architectury {
 }
 
 dependencies {
-	modImplementation "net.fabricmc:fabric-loader:0.11.3"
-	modApi "net.fabricmc.fabric-api:fabric-api:0.34.2+1.16"
+	modImplementation 'net.fabricmc:fabric-loader:0.11.3'
+	modApi 'net.fabricmc.fabric-api:fabric-api:0.34.2+1.16'
 	// Remove the next line if you don't want to depend on the API
-	modApi "me.shedaniel:architectury-fabric:1.14.156"
+	modApi 'me.shedaniel:architectury-fabric:1.14.156'
 
-	implementation( project(path: ":common") ) {
+	implementation( project(path: ':common') ) {
 		transitive = false
 	}
-	developmentFabric( project(path: ":common") ) {
+	developmentFabric( project(path: ':common') ) {
 		transitive = false
 	}
-	shadowCommon( project(path: ":common", configuration: "transformProductionFabric") ) {
+	shadowCommon( project(path: ':common', configuration: 'transformProductionFabric') ) {
 		transitive = false
 	}
 }
 
 processResources {
-	inputs.property "version", project.version
+	inputs.property 'version', project.version
 
-	filesMatching("fabric.mod.json") {
-		expand "version": project.version
+	filesMatching('fabric.mod.json') {
+		expand 'version': project.version
 	}
 }
 
 shadowJar {
 	configurations = [project.configurations.shadowCommon]
-	classifier "dev-shadow"
+	classifier 'dev-shadow'
 }
 
 remapJar {
 	input.set shadowJar.archiveFile
 	dependsOn shadowJar
-	classifier "fabric"
+	classifier 'fabric'
 }
 
 jar {
-	classifier "dev"
+	classifier 'dev'
 }
 
 sourcesJar {
-	def commonSources = project(":common").sourcesJar
+	def commonSources = project(':common').sourcesJar
 	dependsOn commonSources
 	from commonSources.archiveFile.map { zipTree(it) }
 }
