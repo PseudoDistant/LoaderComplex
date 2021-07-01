@@ -1,6 +1,5 @@
 package com.enderzombi102.loaderComplex.fabric12.mixin;
 
-import com.enderzombi102.loaderComplex.fabric12.LoaderComplexFabric;
 import com.enderzombi102.loaderComplex.fabric12.impl.FabricLoader;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
@@ -9,6 +8,11 @@ import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
 import java.util.List;
 import java.util.Set;
 
+
+/**
+ * USED TO CHOOSE MIXINS,
+ * ALL FABRIC VERSIONS HAVE THEM, SO I NEED TO STOP SOME AND ADD SOME
+ */
 public class MixinPlugin implements IMixinConfigPlugin {
 	/**
 	 * Called after the plugin is instantiated, do any setup here.
